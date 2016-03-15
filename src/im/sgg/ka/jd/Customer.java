@@ -8,8 +8,40 @@ package im.sgg.ka.jd;
 public class Customer {
     private String name;
     private String firstName;
-    private enum Sex {NONE,MALE,FEMALE}
-    private String phone;
-    private String email;
+    private String contact;
+
+    public Customer(String name, String firstName) {
+        this(name,firstName, "");
+    }
+
+    public Customer(String name, String firstName, String contact) {
+        this.name = name;
+        this.firstName = firstName;
+        this.contact = contact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
 
 }

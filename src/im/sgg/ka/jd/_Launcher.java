@@ -5,34 +5,35 @@ public class _Launcher {
     public static void main(String[] args) {
 
         Shop shop = new Shop("Snacks & Drinks","123, 5 ave", "+1 (212) 555 6543");
+        Service srv = new Service(shop);
 
-        shop.addToStock(new Stock(GoodsType.SHOES,"Geox W54",    10, 1219.90));
-        shop.addToStock(new Stock(GoodsType.SHOES,"Geox F12",     4, 1229.90));
-        shop.addToStock(new Stock(GoodsType.SHOES,"Geox W54",     1, 1219.90));
-        shop.addToStock(new Stock(GoodsType.SHOES,"Merrells 354", 3, 1349.90));
-        shop.addToStock(new Stock(GoodsType.TSHIRTS,"Benetton XL",6, 589.90));
-        shop.getService().printAllPrices();
+        srv.addToStock(new Stock(GoodsType.SHOES,"Geox W54",     1219.90,10));
+        srv.addToStock(new Stock(GoodsType.SHOES,"Geox F12",     1229.90, 4));
+        srv.addToStock(new Stock(GoodsType.SHOES,"Geox W54",     1219.90, 1));
+        srv.addToStock(new Stock(GoodsType.SHOES,"Merrells 354", 1349.90, 3));
+        srv.addToStock(new Stock(GoodsType.TSHIRTS,"Benetton XL", 589.90, 6));
+        srv.printAllPrices();
 
-        shop.addCustomer(new Customer("Rapid", "Dan", "+1 (212) 555 1231", new DiscountCard()));
-        shop.addCustomer(new Customer("Brown", "Bow", "+1 (212) 555 1232", new DiscountCard()));
-        shop.addCustomer(new Customer("Slippy","Joy", "+1 (212) 555 1233", new DiscountCard()));
+        srv.addCustomer(new Customer("Rapid", "Dan", "+1 (212) 555 1231"));
+        srv.addCustomer(new Customer("Brown", "Bow", "+1 (212) 555 1232"));
+        srv.addCustomer(new Customer("Slippy","Joy", "+1 (212) 555 1233"));
 
-        shop.getService().printAllStock();  shop.getService().printCashState();
+        srv.printAllStock();  srv.printCashState();
 
-        shop.sell("Benetton XL",3,shop.getCustomer().get(1));
-        shop.getService().printAllStock();  shop.getService().printCashState();
+        srv.sell("Benetton XL",3,srv.getCustomer().get(1));
+        srv.printAllStock();  srv.printCashState();
 
-        shop.sell("Geox W54",1,shop.getCustomer().get(2));
-        shop.getService().printAllStock();  shop.getService().printCashState();
+        srv.sell("Geox W54",1,srv.getCustomer().get(2));
+        srv.printAllStock();  srv.printCashState();
 
-        shop.sell("Something wrong",1,shop.getCustomer().get(3));
-        shop.getService().printAllStock();  shop.getService().printCashState();
+        srv.sell("Something wrong",1,srv.getCustomer().get(3));
+        srv.printAllStock();  srv.printCashState();
 
         System.out.println(Service.dateIndex("1978-09-30"));
         System.out.println(Service.dateIndex("2016-03-14"));
 
         String date = Service.currDate();
-        shop.getService().printSoldForDate(date);
+        srv.printSoldForDate(date);
 
     }
 }
