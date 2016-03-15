@@ -26,7 +26,8 @@ public class Service {
     }
 
     private boolean isInStock(Stock[] st, Stock s) {
-        for (Stock test:st) if (test.equals(s)) return true;
+        if (st==null || s== null) return false;
+        for (Stock test:st) if (test!=null && test.equals(s)) return true;
         return false;
     }
 
