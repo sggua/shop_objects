@@ -9,17 +9,19 @@ public class Shop {
     private String name;
     private String address;
     private String phone;
-    private Goods[] goods;
+    private Stock[] stock;
     private Customer[] customer;
 
-    public Shop() {
-        this("","","");
+    public Shop(String name, String address, String phone) {
+        this(name,address,phone,null,null);
     }
 
-    public Shop(String name, String address, String phone) {
+    public Shop(String name, String address, String phone, Stock[] stock, Customer[] customer) {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.stock = stock;
+        this.customer = customer;
     }
 
     public String getName() {
@@ -46,6 +48,14 @@ public class Shop {
         this.phone = phone;
     }
 
+    public Stock[] getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock[] stock) {
+        this.stock = stock;
+    }
+
     public Customer[] getCustomer() {
         return customer;
     }
@@ -53,5 +63,4 @@ public class Shop {
     public void setCustomer(Customer[] customer) {
         this.customer = customer;
     }
-
 }
