@@ -10,18 +10,24 @@ public class Shop {
     private String address;
     private String phone;
     private Stock[] stock;
+    private Sold[] sold;
     private Customer[] customer;
+    private int qtyOfRecords;
+    private int cash;
 
-    public Shop(String name, String address, String phone) {
-        this(name,address,phone,null,null);
+    public Shop() {
+        this("","","");
     }
 
-    public Shop(String name, String address, String phone, Stock[] stock, Customer[] customer) {
+    public Shop(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.stock = stock;
-        this.customer = customer;
+        this.stock = new Stock[10];
+        this.sold = new Sold[10];
+        this.customer = new Customer[10];
+        this.qtyOfRecords=0;
+        this.cash=0;
     }
 
     public String getName() {
@@ -56,11 +62,35 @@ public class Shop {
         this.stock = stock;
     }
 
+    public Sold[] getSold() {
+        return sold;
+    }
+
+    public void setSold(Sold[] sold) {
+        this.sold = sold;
+    }
+
     public Customer[] getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer[] customer) {
         this.customer = customer;
+    }
+
+    public int getQtyOfRecords() {
+        return qtyOfRecords;
+    }
+
+    public void setQtyOfRecords(int qtyOfRecords) {
+        this.qtyOfRecords = qtyOfRecords;
+    }
+
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
     }
 }

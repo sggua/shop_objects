@@ -14,20 +14,20 @@ public class _Launcher {
         srv.addToStock(new Stock(GoodsType.TSHIRTS,"Benetton XL", 589.90, 6));
         srv.printAllPrices();
 
-        srv.addCustomer(new Customer("Rapid", "Dan", "+1 (212) 555 1231"));
-        srv.addCustomer(new Customer("Brown", "Bow", "+1 (212) 555 1232"));
-        srv.addCustomer(new Customer("Slippy","Joy", "+1 (212) 555 1233"));
-
-        srv.printAllStock();  srv.printCashState();
-
-        srv.sell("Benetton XL",3,srv.getCustomer().get(1));
-        srv.printAllStock();  srv.printCashState();
-
-        srv.sell("Geox W54",1,srv.getCustomer().get(2));
-        srv.printAllStock();  srv.printCashState();
-
-        srv.sell("Something wrong",1,srv.getCustomer().get(3));
-        srv.printAllStock();  srv.printCashState();
+//        srv.addCustomer(new Customer("Rapid", "Dan", "+1 (212) 555 1231"));
+//        srv.addCustomer(new Customer("Brown", "Bow", "+1 (212) 555 1232"));
+//        srv.addCustomer(new Customer("Slippy","Joy", "+1 (212) 555 1233"));
+//
+//        srv.printAllStock();  srv.printCashState();
+//
+//        srv.sell("Benetton XL",3,srv.getCustomer().get(1));
+//        srv.printAllStock();  srv.printCashState();
+//
+//        srv.sell("Geox W54",1,srv.getCustomer().get(2));
+//        srv.printAllStock();  srv.printCashState();
+//
+//        srv.sell("Something wrong",1,srv.getCustomer().get(3));
+//        srv.printAllStock();  srv.printCashState();
 
         System.out.println(Service.dateIndex("1978-09-30"));
         System.out.println(Service.dateIndex("2016-03-14"));

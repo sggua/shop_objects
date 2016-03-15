@@ -13,11 +13,6 @@ public class Stock extends Goods{
     public Stock() {
     }
 
-    public Stock(double price, int quantity) {
-        this.price = price;
-        this.quantity = quantity;
-    }
-
     public Stock(GoodsType type, String name, double price, int quantity) {
         super(type, name);
         this.price = price;

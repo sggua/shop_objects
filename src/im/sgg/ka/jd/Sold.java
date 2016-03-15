@@ -5,22 +5,23 @@ package im.sgg.ka.jd;
  * Java Developer lessons
  * kademika.com
  */
-public class Sold extends Goods {
+public class Sold extends Stock {
     private Customer customer;
     private int dateIndex;
+    private int timeIndex;
 
     public Sold(){
     }
 
-    public Sold(Customer customer, int dateIndex) {
-        this.customer = customer;
-        this.dateIndex = dateIndex;
+    public Sold(Stock stock, int quantity, int dateIndex, int timeIndex) {
+        this(stock,quantity,null,dateIndex,timeIndex);
     }
 
-    public Sold(GoodsType type, String name, Customer customer, int dateIndex) {
-        super(type, name);
+    public Sold(Stock stock, int quantity, Customer customer, int dateIndex, int timeIndex) {
+        super(stock.type, stock.getName(), stock.getPrice(), quantity);
         this.customer = customer;
         this.dateIndex = dateIndex;
+        this.timeIndex = timeIndex;
     }
 
     public Customer getCustomer() {
@@ -37,5 +38,13 @@ public class Sold extends Goods {
 
     public void setDateIndex(int dateIndex) {
         this.dateIndex = dateIndex;
+    }
+
+    public int getTimeIndex() {
+        return timeIndex;
+    }
+
+    public void setTimeIndex(int timeIndex) {
+        this.timeIndex = timeIndex;
     }
 }
