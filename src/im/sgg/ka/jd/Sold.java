@@ -7,6 +7,21 @@ package im.sgg.ka.jd;
  */
 public class Sold extends Goods {
     private Customer customer;
+    private int dateIndex;
+
+    public Sold(){
+    }
+
+    public Sold(Customer customer, int dateIndex) {
+        this.customer = customer;
+        this.dateIndex = dateIndex;
+    }
+
+    public Sold(GoodsType type, String name, Customer customer, int dateIndex) {
+        super(type, name);
+        this.customer = customer;
+        this.dateIndex = dateIndex;
+    }
 
     public Customer getCustomer() {
         return customer;
@@ -16,4 +31,11 @@ public class Sold extends Goods {
         this.customer = customer;
     }
 
+    public int getDateIndex() {
+        return dateIndex;
+    }
+
+    public void setDateIndex(int dateIndex) {
+        this.dateIndex = dateIndex;
+    }
 }

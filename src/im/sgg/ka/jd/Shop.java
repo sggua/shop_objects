@@ -11,7 +11,6 @@ public class Shop {
     private String phone;
     private Goods[] goods;
     private Customer[] customer;
-    private DiscountCard[] discountCard;
 
     public Shop() {
         this("","","");
@@ -47,28 +46,12 @@ public class Shop {
         this.phone = phone;
     }
 
-    public Goods[] getGoods() {
-        return goods;
-    }
-
-    public void setGoods(Goods[] goods) {
-        this.goods = goods;
-    }
-
     public Customer[] getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer[] customer) {
         this.customer = customer;
-    }
-
-    public void setDiscountCard(DiscountCard[] discountCard) {
-        this.discountCard = discountCard;
-    }
-
-    public DiscountCard[] getDiscountCard() {
-        return discountCard;
     }
 
 }

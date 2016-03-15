@@ -8,13 +8,8 @@ package im.sgg.ka.jd;
 public class Customer {
     private String name;
     private String firstName;
-    private int birthDay;
-    private int birthMonth;
-    private int birthYear;
     private enum Sex {NONE,MALE,FEMALE}
     private String phone;
     private String email;
-    private DiscountCard discountCard;
-    private Purchase[] purchases;
 
 }
