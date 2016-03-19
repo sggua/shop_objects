@@ -19,7 +19,6 @@ public class _Launcher {
 //        srv.addCustomer(new Customer("Brown", "Bow", "+1 (212) 555 1232"));
 //        srv.addCustomer(new Customer("Slippy","Joy", "+1 (212) 555 1233"));
 //
-//        srv.printAllStock();  srv.printCashState();
 //
         srv.sell("Benetton XL", 1,"2016-03-10","10:10:10", new Customer("Rapid", "Dan", "+1 (212) 555 1231"));
         srv.sell("Benetton XL", 1,"2016-03-11","11:11:11", new Customer("Rapid", "Dan", "+1 (212) 555 1231"));
