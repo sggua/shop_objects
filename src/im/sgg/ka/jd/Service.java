@@ -44,46 +44,6 @@ public class Service {
         printCashdesk();
     }
 
-    private Stock getStockbyName(String name){
-        for (Stock s : shop.getStock()) {
-            if ( s!=null  && s.getName().equals(name)) return s;
-        }
-        return null;
-    }
-
-    private void printCashdesk() {
-        textOutLogged(lineDivider(12)+"\nMoney in cashdesk: "+shop.getCash()+"\n"+lineDivider(12));
-    }
-
-    private String lineDivider(int qty) {
-        return stringClone(stringOfChar('=', 8), qty)+"\n";
-    }
-
-    private String stringClone(String str, int q) {
-        if (! isString(str) || q<1) return "";
-        String result="";
-        for (int i=0;i<q;i++) result+=str;
-        return result;
-    }
-
-    private String stringOfChar(char ch, int q) {
-        if (! isString(""+ch) || q<1) return "";
-        String result="";
-        for (int i=0;i<q;i++) result+=ch;
-        return result;
-    }
-
-    private boolean isInStock(Stock[] st, Stock s) {
-        if (st==null || s== null) return false;
-        for (Stock test:st) if (test!=null && test.equals(s)) return true;
-        return false;
-    }
-
-//    private boolean isInSold(Sold[] sold, sold s) {
-//        if (sold==null || s== null) return false;
-//        for (Stock test:sold) if (test!=null && test.equals(s)) return true;
-//        return false;
-//    }
 
     public double getPrice(Stock s) {
         return s.getPrice();
@@ -263,7 +223,88 @@ public class Service {
         return result;
     }
 
+    public void printCatalog() {
+        String catShoes = "";
+        String catPanties = "";
+        String catTshirts = "";
+        String catCoats = "";
+        for (Stock s:shop.getStock()) {
+            if (s!=null) {
+                switch (s.getType()) {
+                    case SHOES:
+                        catShoes += parseStockToStringByType(s) + "\n";
+                        break;
+                    case PANTIES:
+                        catPanties += parseStockToStringByType(s) + "\n";
+                        break;
+                    case TSHIRTS:
+                        catTshirts += parseStockToStringByType(s) + "\n";
+                        break;
+                    case COATS:
+                        catCoats += parseStockToStringByType(s) + "\n";
+                        break;
+                }
+            }
+
+        }
+        textOut(String.valueOf(GoodsType.COATS)+"\n"+lineDivider(6)
+                +catCoats+lineDivider(6));
+        textOut(String.valueOf(GoodsType.PANTIES)+"\n"+lineDivider(6)
+                +catPanties+lineDivider(6));
+        textOut(String.valueOf(GoodsType.SHOES)+"\n"+lineDivider(6)
+                +catShoes+lineDivider(6));
+        textOut(String.valueOf(GoodsType.TSHIRTS)+"\n"+lineDivider(6)
+                +catTshirts+lineDivider(6));
+
+    }
+
+
     ////////////    PRIVATE    ZONE   /////////////////////
+
+    private String parseStockToStringByType(Stock s){
+        return s.getType()+"\t"+s.getName()+"\t"+s.getPrice()+"\t"+s.getQuantity();
+    }
+
+    private Stock getStockbyName(String name){
+        for (Stock s : shop.getStock()) {
+            if ( s!=null  && s.getName().equals(name)) return s;
+        }
+        return null;
+    }
+
+    private void printCashdesk() {
+        textOutLogged(lineDivider(12)+"\nMoney in cashdesk: "+shop.getCash()+"\n"+lineDivider(12));
+    }
+
+    private String lineDivider(int qty) {
+        return stringClone(stringOfChar('=', 8), qty)+"\n";
+    }
+
+    private String stringClone(String str, int q) {
+        if (! isString(str) || q<1) return "";
+        String result="";
+        for (int i=0;i<q;i++) result+=str;
+        return result;
+    }
+
+    private String stringOfChar(char ch, int q) {
+        if (! isString(""+ch) || q<1) return "";
+        String result="";
+        for (int i=0;i<q;i++) result+=ch;
+        return result;
+    }
+
+    private boolean isInStock(Stock[] st, Stock s) {
+        if (st==null || s== null) return false;
+        for (Stock test:st) if (test!=null && test.equals(s)) return true;
+        return false;
+    }
+
+    //    private boolean isInSold(Sold[] sold, sold s) {
+//        if (sold==null || s== null) return false;
+//        for (Stock test:sold) if (test!=null && test.equals(s)) return true;
+//        return false;
+//    }
 
     private boolean sellArticle(Stock s, int q,String date, String time, Customer cust){
         if (! isStockDBOK(shop.getStock()) || ! isArray(s) || s.getQuantity()<q) return false;

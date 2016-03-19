@@ -43,6 +43,8 @@ public class _Launcher {
 
         srv.printSoldForDate(Service.currDate());
 
+        srv.printCatalog();
+
 
 //        System.out.println(Service.dateIndex("1978-09-30"));
 //        System.out.println(Service.dateIndex("2016-03-14"));
