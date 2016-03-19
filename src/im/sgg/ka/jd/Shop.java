@@ -12,8 +12,9 @@ public class Shop {
     private Stock[] stock;
     private Sold[] sold;
     private Customer[] customer;
-    private int qtyOfRecords;
-    private int cash;
+    private int qtyStock;
+    private int qtySold;
+    private double cash;
 
     public Shop() {
         this("","","");
@@ -26,7 +27,7 @@ public class Shop {
         this.stock = new Stock[10];
         this.sold = new Sold[10];
         this.customer = new Customer[10];
-        this.qtyOfRecords=0;
+        this.qtyStock =0;
         this.cash=0;
     }
 
@@ -78,19 +79,27 @@ public class Shop {
         this.customer = customer;
     }
 
-    public int getQtyOfRecords() {
-        return qtyOfRecords;
+    public int getQtyStock() {
+        return qtyStock;
     }
 
-    public void setQtyOfRecords(int qtyOfRecords) {
-        this.qtyOfRecords = qtyOfRecords;
+    public void setQtyStock(int qtyStock) {
+        this.qtyStock = qtyStock;
     }
 
-    public int getCash() {
+    public int getQtySold() {
+        return qtySold;
+    }
+
+    public void setQtySold(int qtySold) {
+        this.qtySold = qtySold;
+    }
+
+    public double getCash() {
         return cash;
     }
 
-    public void setCash(int cash) {
+    public void setCash(double cash) {
         this.cash = cash;
     }
 }
